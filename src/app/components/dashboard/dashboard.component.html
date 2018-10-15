@@ -1,0 +1,43 @@
+<div class="container mt-5">
+
+
+  <!-- <form> -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Total Players Interested</label>
+      <input type="number" class="form-control" [(ngModel)]="listFilterByPlayers" id="inputCity">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Duration of Game</label>
+      <input type="number" class="form-control" [(ngModel)]="listFilterByTime" id="inputZip">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">
+    <a routerLink="/games">Explore Games</a>
+  </button>
+  <!-- </form> -->
+
+  <table class="table table-dark table-striped mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Availability</th>
+        <th scope="col">Players</th>
+        <th scope="col">Time</th>
+        <th scope="col">Borrow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of tempFilteredGames">
+        <th scope="row">{{game.id}}</th>
+        <td>{{game.name}}</td>
+        <td>{{game.availability}}</td>
+        <td>{{game.players}}</td>
+        <td>{{game.time}}</td>
+        <td>{{game.price| currency}}</td>
+        <td><button class="btn btn-success"><a [routerLink]="['profile', game.id]">Borrow</a></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
