@@ -1,10 +1,12 @@
 <div class="container mt-5">
 
-  <button class="btn btn-dark"><a routerLink="/dashboard">Go to Dashboard</a></button>
+  <button class="btn btn-dark"><a routerLink="/dashboard"><span class="fa fa-arrow-right"></span> Go to Dashboard</a></button>
   <div class="row">
 
 
-    <div class="col-md-4">Filter By Name: </div>
+    <div class="col-md-4">
+      <p class="h2">Filter By Name: </p>
+    </div>
     <div class="col-md-12">
       <input type="text" class="form-control" [(ngModel)]="listFilter">
       <br>

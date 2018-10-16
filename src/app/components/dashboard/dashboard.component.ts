@@ -9,6 +9,7 @@ import { Game } from "../../game";
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit {
+  available = false;
   _listFilterByPlayers: number;
   _listFilterByTime: number;
 
@@ -75,5 +76,20 @@ export class DashboardComponent implements OnInit {
 
   performFilterByPlayers(filterBy: number) {
     return this.filteredGames.filter((game: Game) => filterBy <= game.players);
+  }
+
+  toggleAvailability(): void {
+    this.available = !this.available;
+    if (this.available) {
+      this.showOnlyAvailable();
+    } else {
+      this.tempFilteredGames = this.games;
+    }
+  }
+
+  showOnlyAvailable(): Game[] {
+    return (this.tempFilteredGames = this.tempFilteredGames.filter(
+      g => g.availability == true
+    ));
   }
 }

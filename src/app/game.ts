@@ -5,6 +5,7 @@ export class Game {
     public price: number,
     public availability: boolean,
     public time: number,
-    public players: number
+    public players: number,
+    public rating: number
   ) {}
 }
